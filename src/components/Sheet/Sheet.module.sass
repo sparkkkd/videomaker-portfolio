@@ -1,0 +1,59 @@
+.sheet
+  position: absolute
+  left: 0
+  top: 0
+  width: 100vw
+  height: 100vh
+  z-index: 2
+
+.overlay
+  width: 100vw
+  height: 100vh
+  background-color: rgba(0, 0, 0, .5)
+  z-index: 1
+
+.content
+  padding: 40px 20px
+  width: 100%
+  position: absolute
+  bottom: 0
+  border-top-left-radius: 20px
+  border-top-right-radius: 20px
+  background-color: #C03118
+  &::before
+    content: ''
+    position: absolute
+    top: 10px
+    left: 50%
+    width: 25%
+    height: 4px
+    transform: translateX(-50%)
+    background-color: #ff6b51
+    border-radius: 30px
+
+.list
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  justify-content: space-between
+  align-items: center
+
+// Media
+@media screen and ( max-width: 660px )
+  .list
+    row-gap: 30px
+
+  .item
+    flex-basis: 33%
+    align-items: left
+    font-size: 16px
+
+@media screen and ( max-width: 527px )
+  .item
+    font-size: 14px
+
+@media screen and ( max-width: 470px )
+  .item
+    flex-basis: 50%
+    &:nth-child(2n)
+      text-align: right
