@@ -1,4 +1,4 @@
-import ReactPlayer from 'react-player/vimeo'
+import ReactPlayer from 'react-player'
 
 import PlayIcon from '../PlayIcon/PlayIcon'
 
@@ -7,21 +7,35 @@ import { useWindowSize } from '@uidotdev/usehooks'
 
 interface PlayerProps {
 	video?: string
+	width?: string | number
+	height?: string | number
+	playSize: 'small' | 'medium' | 'large'
+	light: string
+	style?: string
+	onClick?: () => void
 }
 
-export default function Player({ video }: PlayerProps) {
+export default function Player({
+	video,
+	width,
+	height,
+	playSize,
+	light,
+	style,
+	onClick,
+}: PlayerProps) {
 	const size = useWindowSize()
 
 	return (
-		<div className={styles.wrapper}>
+		<div className={`${styles.wrapper} ${style}`}>
 			<ReactPlayer
 				className={styles.player}
-				width='100%'
-				height={size.width! > 877 ? 600 : size.width! > 500 ? 400 : 200}
+				width={width ? width : '100%'}
+				height={height ? height : size.width! > 877 ? 600 : size.width! > 500 ? 400 : 200}
 				url={video}
 				controls
-				playIcon={<PlayIcon />}
-				light='https://i.vimeocdn.com/video/1961166623-c7b04bc60a2137037565f762578487611afae73ec8ab577b74630e3b457bc361-d_1920x1080'
+				playIcon={<PlayIcon size={playSize} onClick={onClick} />}
+				light={light}
 			/>
 		</div>
 	)

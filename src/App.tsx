@@ -7,6 +7,7 @@ import { useAppSelector } from './store/hooks'
 import { AnimatePresence } from 'framer-motion'
 import Intro from './modules/Intro/Intro'
 import Container from './components/Container/Container'
+import Works from './modules/Works/Works'
 // import { AnimatePresence } from 'framer-motion'
 
 function App() {
@@ -16,19 +17,17 @@ function App() {
 		<>
 			<AnimatePresence>{isSheetActive && <Sheet />}</AnimatePresence>
 
-			<main className={styles.main}>
-				{/* Start Noise */}
-				<div
-					className={styles.overlay}
-					style={{ backgroundImage: `url(${backgroundNoise})` }}
-				></div>
-				{/* End Noise */}
+			{/* Start Noise */}
+			<div className={styles.overlay} style={{ backgroundImage: `url(${backgroundNoise})` }}></div>
+			{/* End Noise */}
 
+			<main className={styles.main}>
 				<Header />
 
 				{/* Modules */}
 				<Container>
 					<Intro />
+					<Works />
 				</Container>
 			</main>
 		</>

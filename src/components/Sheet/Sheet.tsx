@@ -1,14 +1,16 @@
 import { motion, Variants } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-import { useAppDispatch } from '../../store/hooks'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { toggleSheet } from '../../store/slices/userActionSlice'
 import { NAV_LINKS } from '../../modules/Header/models'
 
 import styles from './Sheet.module.sass'
+import { useEffect } from 'react'
 
 export default function Sheet() {
 	const dispatch = useAppDispatch()
+	const { isSheetActive } = useAppSelector((state) => state.userActionSlice)
 
 	const handleToggleSheet = () => {
 		dispatch(toggleSheet())
@@ -52,6 +54,20 @@ export default function Sheet() {
 			y: 100,
 		},
 	}
+
+	useEffect(() => {
+		function disableScroll() {
+			if (isSheetActive) document.body.style.overflow = 'hidden'
+		}
+
+		function enableScroll() {
+			document.body.style.overflow = 'auto'
+		}
+
+		disableScroll()
+
+		return enableScroll
+	}, [isSheetActive])
 
 	return (
 		<motion.div
