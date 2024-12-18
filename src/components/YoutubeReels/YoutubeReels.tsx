@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useWindowSize } from '@uidotdev/usehooks'
 
 import Player from '../Player/Player'
 import SectionTitle from '../SectionTitle/SectionTitle'
@@ -30,18 +29,10 @@ interface ReelsVideoProps {
 function ReelsVideo({ video, light }: ReelsVideoProps) {
 	const [isOverlay, setIsOverlay] = useState<boolean>(true)
 
-	const size = useWindowSize()
-
 	return (
 		<div className={styles.video} onClick={() => setIsOverlay(false)}>
 			{isOverlay && <div className={styles.overlay}></div>}
-			<Player
-				video={video}
-				light={light}
-				playSize='medium'
-				style={styles.player}
-				height={size.width! > 900 ? 500 : size.width! < 600 ? 400 : 300}
-			/>
+			<Player video={video} light={light} playSize='medium' style={styles.player} height={'100%'} />
 		</div>
 	)
 }

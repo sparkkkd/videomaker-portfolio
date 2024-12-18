@@ -3,6 +3,8 @@ import { IVideoInfo } from '../MusicClips/models'
 import Player from '../Player/Player'
 
 import styles from './VideoCard.module.sass'
+import CardTitle from '../Card/CardTitle/CardTitle'
+import CardInfo from '../Card/CardInfo/CardInfo'
 
 interface VideoCardProps {
 	video: string
@@ -31,14 +33,10 @@ export default function VideoCard({ video, title, info, playSize, light }: Video
 			</div>
 
 			<div>
-				<h4 className={styles.title}>{title}</h4>
-
+				<CardTitle>{title}</CardTitle>
 				<div className={styles.info}>
 					{info.map(({ id, icon, text }) => (
-						<div className={styles.infoWrapper} key={id}>
-							<div className={styles.icon}>{icon}</div>
-							<div className={styles.text}>{text}</div>
-						</div>
+						<CardInfo key={id} icon={icon} text={text} />
 					))}
 				</div>
 			</div>

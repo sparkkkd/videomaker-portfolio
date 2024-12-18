@@ -1,0 +1,36 @@
+.info
+  display: flex
+
+.icon
+  position: relative
+  margin-right: 20px
+  padding: 15px
+  width: 18px
+  height: 18px
+  border-radius: 4px
+  background: linear-gradient(180deg, #ff684d 0%, #fb583b 100%)
+  svg
+    position: absolute
+    left: 50%
+    top: 50%
+    transform: translate(-50%, -50%)
+
+.text
+  font-size: 20px
+  line-height: 150%
+
+// Media
+@media screen and ( max-width: 1055px )
+  .icon
+    margin-right: 10px
+    width: 15px
+    height: 15px
+
+  .text
+    font-size: 17px
+    line-height: 180%
+
+@media screen and ( max-width: 370px )
+  .text
+    font-size: 14px
+    line-height: 225%
