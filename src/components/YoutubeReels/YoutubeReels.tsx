@@ -1,11 +1,16 @@
 import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 
-import Player from '../Player/Player'
 import SectionTitle from '../SectionTitle/SectionTitle'
+import Overlay from '../Overlay/Overlay'
+import PreviewImage from '../Card/PreviewImage/PreviewImage'
+import VideoPopup from '../VideoPopup/VideoPopup'
+import PopupContent from '../PopupContent/PopupContent'
 
 import { YOUTUBE_REELS } from './models'
 
 import styles from './YoutubeReels.module.sass'
+import { useDisableScroll } from '../../hooks/useDisableScroll'
 
 export default function YoutubeReels() {
 	return (
@@ -27,12 +32,33 @@ interface ReelsVideoProps {
 }
 
 function ReelsVideo({ video, light }: ReelsVideoProps) {
-	const [isOverlay, setIsOverlay] = useState<boolean>(true)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+
+	useDisableScroll(isOpen)
 
 	return (
-		<div className={styles.video} onClick={() => setIsOverlay(false)}>
-			{isOverlay && <div className={styles.overlay}></div>}
-			<Player video={video} light={light} playSize='medium' style={styles.player} height={'100%'} />
-		</div>
+		<>
+			<AnimatePresence>
+				{isOpen && (
+					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
+						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
+					</VideoPopup>
+				)}
+			</AnimatePresence>
+
+			<div className={styles.video} onClick={() => setIsOpen(true)}>
+				<Overlay className={styles.overlay} />
+
+				<PreviewImage
+					img={light}
+					iconSize='medium'
+					onClick={() => console.log(`123`)}
+					className={styles.preview}
+				/>
+
+				{/* {isOverlay && <div className={styles.overlay}></div>} */}
+				{/* <Player video={video} light={light} playSize='medium' style={styles.player} height={'100%'} /> */}
+			</div>
+		</>
 	)
 }

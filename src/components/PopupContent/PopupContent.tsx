@@ -8,7 +8,7 @@ import styles from './PopupContent.module.sass'
 import CardTitle from '../Card/CardTitle/CardTitle'
 
 interface PopupContentProps {
-	title: string
+	title?: string | React.ReactNode
 	video: string
 	light: string
 	onClose: () => void
@@ -20,7 +20,7 @@ export default function PopupContent({ title, video, light, onClose }: PopupCont
 	return (
 		<div className={styles.content}>
 			<IoCloseOutline className={styles.close} onClick={onClose} />
-			<CardTitle>{title}</CardTitle>
+			<CardTitle>{title && title}</CardTitle>
 			<div className={styles.playerWrapper} onClick={() => setIsOverlay(false)}>
 				{isOverlay && <Overlay className={styles.overlay} />}
 
