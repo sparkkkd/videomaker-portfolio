@@ -30,7 +30,9 @@ export const YOUTUBE_VIDEOS: IYoutubeVideo[] = [
 		light: light_1,
 		title: (
 			<>
-				Короткометражный фильм <br /> «Теория цвета»
+				Короткометражный фильм
+				<br />
+				«Теория цвета»
 			</>
 		),
 		info: [
@@ -62,7 +64,8 @@ export const YOUTUBE_VIDEOS: IYoutubeVideo[] = [
 		light: light_2,
 		title: (
 			<>
-				Hamster Kombat — <br /> История провала
+				Hamster Kombat —<br />
+				История провала
 			</>
 		),
 		info: [

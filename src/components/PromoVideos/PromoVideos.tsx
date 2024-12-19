@@ -1,38 +1,47 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
+import { toast } from 'sonner'
+
+import { IPromoVideo, PROMO_VIDEOS } from './models'
 
 import { useDisableScroll } from '../../hooks/useDisableScroll'
 
-import { IYoutubeVideo, YOUTUBE_VIDEOS } from './models'
-
-import CardTitle from '../Card/CardTitle/CardTitle'
-import SectionTitle from '../SectionTitle/SectionTitle'
-import CardInfo from '../Card/CardInfo/CardInfo'
-import PreviewImage from '../Card/PreviewImage/PreviewImage'
 import Overlay from '../Overlay/Overlay'
 import VideoPopup from '../Popup/VideoPopup/VideoPopup'
 import PopupContent from '../Popup/PopupContent/PopupContent'
+import CardTitle from '../Card/CardTitle/CardTitle'
+import CardInfo from '../Card/CardInfo/CardInfo'
+import SectionTitle from '../SectionTitle/SectionTitle'
+import PreviewImage from '../Card/PreviewImage/PreviewImage'
 
-import styles from './YoutubeVideo.module.sass'
+import styles from './PromoVideos.module.sass'
 
-export default function YoutubeVideos() {
+export default function PromoVideos() {
 	return (
 		<div className={styles.wrapper}>
-			<SectionTitle>Короткометражный фильм и Youtube видео</SectionTitle>
+			<SectionTitle>Рекламные ролики</SectionTitle>
 
 			<div className={styles.videos}>
-				{YOUTUBE_VIDEOS.map((video) => (
-					<YoutubeVideo key={video.id} {...video} />
+				{PROMO_VIDEOS.map((video) => (
+					<PromoVideo key={video.id} {...video} />
 				))}
 			</div>
 		</div>
 	)
 }
 
-function YoutubeVideo({ video, light, title, info }: IYoutubeVideo) {
+function PromoVideo({ title, video, light, isReady, info }: IPromoVideo) {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 
 	useDisableScroll(isOpen)
+
+	const handleOpenPopup = () => {
+		if (isReady) {
+			setIsOpen(true)
+		} else {
+			toast.error('Видео еще не готово')
+		}
+	}
 
 	return (
 		<>
@@ -50,14 +59,16 @@ function YoutubeVideo({ video, light, title, info }: IYoutubeVideo) {
 			</AnimatePresence>
 
 			<div className={styles.video}>
-				<div className={styles.imageWrapper} onClick={() => setIsOpen(true)}>
+				<div className={styles.imageWrapper} onClick={handleOpenPopup}>
 					<Overlay className={styles.overlay} />
 					<PreviewImage
 						img={light}
 						iconSize='medium'
 						className={styles.preview}
 						onClick={() => setIsOpen(false)}
+						isReady={isReady}
 					/>
+					{!isReady && <span className={styles.notReady}>Coming soon</span>}
 				</div>
 
 				<div className={styles.content}>

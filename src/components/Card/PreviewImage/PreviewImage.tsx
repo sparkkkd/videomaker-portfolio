@@ -7,9 +7,16 @@ interface PreviewImageProps {
 	className?: string
 	iconSize: 'small' | 'medium' | 'large'
 	onClick: () => void
+	isReady?: boolean
 }
 
-export default function PreviewImage({ img, className, iconSize, onClick }: PreviewImageProps) {
+export default function PreviewImage({
+	img,
+	className,
+	iconSize,
+	onClick,
+	isReady = true,
+}: PreviewImageProps) {
 	return (
 		<div
 			style={{ backgroundImage: `url(${img})` }}
@@ -17,7 +24,8 @@ export default function PreviewImage({ img, className, iconSize, onClick }: Prev
 			onClick={onClick}
 		>
 			<Overlay />
-			<PlayIcon size={iconSize} />
+
+			{isReady && <PlayIcon size={iconSize} />}
 		</div>
 	)
 }

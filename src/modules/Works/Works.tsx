@@ -1,4 +1,5 @@
 import MusicClips from '../../components/MusicClips/MusicClips'
+import PromoVideos from '../../components/PromoVideos/PromoVideos'
 import YoutubeReels from '../../components/YoutubeReels/YoutubeReels'
 import YoutubeVideos from '../../components/YoutubeVideos/YoutubeVideo'
 
@@ -10,6 +11,7 @@ export default function Works() {
 			<MusicClips />
 			<YoutubeReels />
 			<YoutubeVideos />
+			<PromoVideos />
 		</section>
 	)
 }

@@ -7,7 +7,7 @@
   justify-content: space-between
 
 .video
-  flex-basis: 48%
+  flex-basis: 47%
 
 .imageWrapper
   margin-bottom: 30px
@@ -18,22 +18,38 @@
   border-radius: 20px
 
 .preview
+  width: 100%
   height: 100%
+  border-radius: 20px
+
+.notReady
+  width: 100%
+  text-align: center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%, -50%)
+  font-size: 34px
+  font-weight: bold
+  z-index: 3
 
 .infoWrapper
   margin-top: 20px
   display: flex
-  flex-wrap: wrap
-  align-items: center
+  flex-direction: column
   row-gap: 20px
 
-.info
-  flex-basis: 47%
-
 // Media
+@media screen and ( max-width: 960px )
+  .wrapper
+    margin-top: 80px
+
 @media screen and ( max-width: 900px )
   .imageWrapper
     height: 200px
+
+  .notReady
+    font-size: 24px
 
 @media screen and ( max-width: 725px )
   .videos
@@ -52,10 +68,9 @@
     width: 40%
     margin-left: 20px
 
-  .infoWrapper
-    display: grid
-    grid-template-columns: repeat(2, 1fr)
-    gap: 20px
+@media screen and ( max-width: 640px )
+  .wrapper
+    margin-top: 60px
 
 @media screen and ( max-width: 625px )
   .video
@@ -70,6 +85,10 @@
     margin-top: 20px
     margin-left: 0px
     width: 100%
+
+@media screen and ( max-width: 455px )
+  .wrapper
+    margin-top: 40px
 
 @media screen and ( max-width: 370px )
   .imageWrapper

@@ -8,6 +8,7 @@ import { AnimatePresence } from 'framer-motion'
 import Intro from './modules/Intro/Intro'
 import Container from './components/Container/Container'
 import Works from './modules/Works/Works'
+import { Toaster } from 'sonner'
 // import { AnimatePresence } from 'framer-motion'
 
 function App() {
@@ -15,12 +16,19 @@ function App() {
 
 	return (
 		<>
+			{/* Start Sheet */}
 			<AnimatePresence>{isSheetActive && <Sheet />}</AnimatePresence>
+			{/* End Sheet */}
 
 			{/* Start Noise */}
 			<div className={styles.overlay} style={{ backgroundImage: `url(${backgroundNoise})` }}></div>
 			{/* End Noise */}
 
+			{/* Start toast */}
+			<Toaster richColors />
+			{/* End toast */}
+
+			{/* Start modules */}
 			<main className={styles.main}>
 				<Header />
 
@@ -30,6 +38,7 @@ function App() {
 					<Works />
 				</Container>
 			</main>
+			{/* End modules */}
 		</>
 	)
 }

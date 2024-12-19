@@ -4,8 +4,8 @@ import { AnimatePresence } from 'framer-motion'
 import SectionTitle from '../SectionTitle/SectionTitle'
 import Overlay from '../Overlay/Overlay'
 import PreviewImage from '../Card/PreviewImage/PreviewImage'
-import VideoPopup from '../VideoPopup/VideoPopup'
-import PopupContent from '../PopupContent/PopupContent'
+import VideoPopup from '../Popup/VideoPopup/VideoPopup'
+import PopupContent from '../Popup/PopupContent/PopupContent'
 
 import { YOUTUBE_REELS } from './models'
 
