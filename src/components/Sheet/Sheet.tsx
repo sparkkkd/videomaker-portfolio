@@ -2,11 +2,12 @@ import { motion, Variants } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { useDisableScroll } from '../../hooks/useDisableScroll'
+
 import { toggleSheet } from '../../store/slices/userActionSlice'
 import { NAV_LINKS } from '../../modules/Header/models'
 
 import styles from './Sheet.module.sass'
-import { useEffect } from 'react'
 
 export default function Sheet() {
 	const dispatch = useAppDispatch()
@@ -55,19 +56,7 @@ export default function Sheet() {
 		},
 	}
 
-	useEffect(() => {
-		function disableScroll() {
-			if (isSheetActive) document.body.style.overflow = 'hidden'
-		}
-
-		function enableScroll() {
-			document.body.style.overflow = 'auto'
-		}
-
-		disableScroll()
-
-		return enableScroll
-	}, [isSheetActive])
+	useDisableScroll(isSheetActive)
 
 	return (
 		<motion.div

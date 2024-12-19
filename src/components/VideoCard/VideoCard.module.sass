@@ -3,21 +3,6 @@
   flex-direction: column
   flex-basis: 32%
 
-.playerWrapper
-  position: relative
-  margin-bottom: 30px
-
-.overlay
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-color: rgba(0, 0, 0, .5)
-  border-radius: 20px
-  z-index: 1
-  pointer-events: none
-
 .player
   border-radius: 20px
 
@@ -68,13 +53,13 @@
     flex-direction: row
     align-items: center
 
-  .playerWrapper
+  .preview
     margin-bottom: 0px
     margin-right: 50px
     width: 57%
 
 @media screen and ( max-width: 670px )
-  .playerWrapper
+  .preview
     margin-right: 20px
 
 @media screen and ( max-width: 600px )
@@ -82,7 +67,7 @@
     flex-direction: column
     align-items: start
 
-  .playerWrapper
+  .preview
     width: 100%
     margin-right: 0px
     margin-bottom: 20px

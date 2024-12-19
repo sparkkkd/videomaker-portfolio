@@ -1,10 +1,16 @@
 import { useState } from 'react'
-import { IVideoInfo } from '../MusicClips/models'
-import Player from '../Player/Player'
 
-import styles from './VideoCard.module.sass'
+import { IVideoInfo } from '../MusicClips/models'
+
 import CardTitle from '../Card/CardTitle/CardTitle'
 import CardInfo from '../Card/CardInfo/CardInfo'
+import PreviewImage from '../Card/PreviewImage/PreviewImage'
+import VideoPopup from '../VideoPopup/VideoPopup'
+import PopupContent from '../PopupContent/PopupContent'
+
+import styles from './VideoCard.module.sass'
+import { useDisableScroll } from '../../hooks/useDisableScroll'
+import { AnimatePresence } from 'framer-motion'
 
 interface VideoCardProps {
 	video: string
@@ -15,31 +21,42 @@ interface VideoCardProps {
 }
 
 export default function VideoCard({ video, title, info, playSize, light }: VideoCardProps) {
-	const [isOverlay, setIsOverlay] = useState<boolean>(true)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+
+	useDisableScroll(isOpen)
 
 	return (
-		<div className={styles.card}>
-			<div className={styles.playerWrapper} onClick={() => setIsOverlay(false)}>
-				{isOverlay && <div className={styles.overlay}></div>}
+		<>
+			<AnimatePresence>
+				{isOpen && (
+					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
+						<PopupContent
+							video={video}
+							title={title}
+							light={light}
+							onClose={() => setIsOpen(false)}
+						/>
+					</VideoPopup>
+				)}
+			</AnimatePresence>
 
-				<Player
-					width={'100%'}
-					height={250}
-					video={video}
-					playSize={playSize}
-					light={light}
-					style={styles.player}
+			<div className={styles.card}>
+				<PreviewImage
+					img={light}
+					className={styles.preview}
+					iconSize={playSize}
+					onClick={() => setIsOpen(true)}
 				/>
-			</div>
 
-			<div>
-				<CardTitle>{title}</CardTitle>
-				<div className={styles.info}>
-					{info.map(({ id, icon, text }) => (
-						<CardInfo key={id} icon={icon} text={text} />
-					))}
+				<div>
+					<CardTitle>{title}</CardTitle>
+					<div className={styles.info}>
+						{info.map(({ id, icon, text }) => (
+							<CardInfo key={id} icon={icon} text={text} />
+						))}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	)
 }
