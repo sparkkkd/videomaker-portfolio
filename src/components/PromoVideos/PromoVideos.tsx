@@ -18,7 +18,7 @@ import styles from './PromoVideos.module.sass'
 
 export default function PromoVideos() {
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} id='promo'>
 			<SectionTitle>Рекламные ролики</SectionTitle>
 
 			<div className={styles.videos}>
@@ -48,12 +48,7 @@ function PromoVideo({ title, video, light, isReady, info }: IPromoVideo) {
 			<AnimatePresence>
 				{isOpen && (
 					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-						<PopupContent
-							video={video}
-							title={title}
-							light={light}
-							onClose={() => setIsOpen(false)}
-						/>
+						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
 					</VideoPopup>
 				)}
 			</AnimatePresence>

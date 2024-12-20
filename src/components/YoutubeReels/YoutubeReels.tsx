@@ -14,7 +14,7 @@ import { useDisableScroll } from '../../hooks/useDisableScroll'
 
 export default function YoutubeReels() {
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} id='reels'>
 			<SectionTitle>YouTube Reels</SectionTitle>
 
 			<div className={styles.videos}>
@@ -49,12 +49,7 @@ function ReelsVideo({ video, light }: ReelsVideoProps) {
 			<div className={styles.video} onClick={() => setIsOpen(true)}>
 				<Overlay className={styles.overlay} />
 
-				<PreviewImage
-					img={light}
-					iconSize='medium'
-					onClick={() => console.log(`123`)}
-					className={styles.preview}
-				/>
+				<PreviewImage img={light} iconSize='medium' className={styles.preview} />
 
 				{/* {isOverlay && <div className={styles.overlay}></div>} */}
 				{/* <Player video={video} light={light} playSize='medium' style={styles.player} height={'100%'} /> */}

@@ -7,7 +7,7 @@ import styles from './MusicClips.module.sass'
 
 export default function MusicClips() {
 	return (
-		<div className={styles.music}>
+		<div className={styles.music} id={`music`}>
 			<SectionTitle>Музыкальные клипы</SectionTitle>
 
 			<div className={styles.videoWrapper}>

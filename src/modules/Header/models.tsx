@@ -10,10 +10,10 @@ export interface IHeaderNavProps {
 }
 
 export const NAV_LINKS: IHeaderNavProps[] = [
-	{ title: 'Reels', link: '/', id: v4() },
-	{ title: 'Реклама', link: '/', id: v4() },
-	{ title: 'YouTube', link: '/', id: v4() },
-	{ title: 'К/м фильмы', link: '/', id: v4() },
-	{ title: 'Клипы', link: '/', id: v4() },
-	{ title: 'Связаться со мной', link: '/', icon: <LinkArrow />, id: v4() },
+	{ title: 'Reels', link: '#reels', id: v4() },
+	{ title: 'Реклама', link: '#promo', id: v4() },
+	{ title: 'YouTube', link: '#films', id: v4() },
+	{ title: 'К/м фильмы', link: '#films', id: v4() },
+	{ title: 'Клипы', link: '#music', id: v4() },
+	{ title: 'Связаться со мной', link: '#contacts', icon: <LinkArrow />, id: v4() },
 ]

@@ -17,7 +17,7 @@ import styles from './YoutubeVideo.module.sass'
 
 export default function YoutubeVideos() {
 	return (
-		<div className={styles.wrapper}>
+		<div className={styles.wrapper} id='films'>
 			<SectionTitle>Короткометражный фильм и Youtube видео</SectionTitle>
 
 			<div className={styles.videos}>
@@ -39,12 +39,7 @@ function YoutubeVideo({ video, light, title, info }: IYoutubeVideo) {
 			<AnimatePresence>
 				{isOpen && (
 					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-						<PopupContent
-							video={video}
-							title={title}
-							light={light}
-							onClose={() => setIsOpen(false)}
-						/>
+						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
 					</VideoPopup>
 				)}
 			</AnimatePresence>

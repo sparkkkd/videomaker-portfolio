@@ -1,7 +1,5 @@
 .content
   position: relative
-  padding: 30px 80px
-  background-color: #C03118
   border-radius: 30px
   display: flex
   justify-content: center
@@ -27,10 +25,14 @@
 
 .close
   position: absolute
-  right: 30px
-  top: 30px
+  right: 0px
+  top: -20px
   font-size: 32px
   cursor: pointer
+  color: #fff
+  z-index: 3
+  background-color: #C03118
+  border-radius: 50%
 
 // Media
 @media screen and ( max-width: 1200px )
@@ -39,22 +41,16 @@
     height: 300px
 
 @media screen and ( max-width: 875px )
-  .content
-    padding: 20px 40px
-
-  .close
-    right: 10px
-    top: 10px
-
   .playerWrapper
     margin-top: 10px
     width: 500px
     height: 250px
 
-@media screen and ( max-width: 600px )
-  .content
-    padding: 10px 20px
+  .close
+    top: -27px
+    right: -7px
 
+@media screen and ( max-width: 600px )
   .playerWrapper
     width: 400px
     height: 200px

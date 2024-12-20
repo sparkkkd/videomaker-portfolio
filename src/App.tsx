@@ -1,18 +1,23 @@
-import styles from './App.module.sass'
-
-import backgroundNoise from './images/noise-bg.jpg'
-import Header from './modules/Header/Header'
-import Sheet from './components/Sheet/Sheet'
 import { useAppSelector } from './store/hooks'
 import { AnimatePresence } from 'framer-motion'
-import Intro from './modules/Intro/Intro'
-import Container from './components/Container/Container'
-import Works from './modules/Works/Works'
 import { Toaster } from 'sonner'
-// import { AnimatePresence } from 'framer-motion'
+
+import Sheet from './components/Sheet/Sheet'
+import Header from './modules/Header/Header'
+import Container from './components/Container/Container'
+import Intro from './modules/Intro/Intro'
+import Works from './modules/Works/Works'
+import Footer from './modules/Footer/Footer'
+
+import backgroundNoise from './images/noise-bg.jpg'
+import backgroundImage from './images/bg.jpg'
+
+import styles from './App.module.sass'
 
 function App() {
 	const { isSheetActive } = useAppSelector((state) => state.userActionSlice)
+
+	document.body.style.backgroundImage = `url(${backgroundImage})`
 
 	return (
 		<>
@@ -25,17 +30,16 @@ function App() {
 			{/* End Noise */}
 
 			{/* Start toast */}
-			<Toaster richColors />
+			<Toaster richColors toastOptions={{ className: styles.toast }} />
 			{/* End toast */}
 
 			{/* Start modules */}
 			<main className={styles.main}>
-				<Header />
-
-				{/* Modules */}
 				<Container>
+					<Header />
 					<Intro />
 					<Works />
+					<Footer />
 				</Container>
 			</main>
 			{/* End modules */}

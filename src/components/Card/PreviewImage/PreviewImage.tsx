@@ -6,7 +6,7 @@ interface PreviewImageProps {
 	img: string
 	className?: string
 	iconSize: 'small' | 'medium' | 'large'
-	onClick: () => void
+	onClick?: () => void
 	isReady?: boolean
 }
 
