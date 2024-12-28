@@ -1,5 +1,4 @@
 import { motion, Variants } from 'framer-motion'
-import { Link } from 'react-router-dom'
 
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { useDisableScroll } from '../../hooks/useDisableScroll'
@@ -72,10 +71,10 @@ export default function Sheet() {
 				<nav>
 					<ul className={styles.list}>
 						{NAV_LINKS.map(({ title, link, icon, id }) => (
-							<li className={styles.item} key={id}>
-								<Link to={link}>
+							<li className={styles.item} key={id} onClick={() => handleToggleSheet()}>
+								<a href={link}>
 									{title} {icon && <span>{icon}</span>}
-								</Link>
+								</a>
 							</li>
 						))}
 					</ul>

@@ -28,6 +28,7 @@ export default function PopupContent({ video, light, onClose }: PopupContentProp
 					style={styles.player}
 					height={'100%'}
 				/>
+				{/* <video className={styles.player} src={video}></video> */}
 			</div>
 		</div>
 	)

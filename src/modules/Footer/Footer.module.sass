@@ -1,4 +1,5 @@
 .wrapper
+  padding-bottom: 40px
   margin-top: 120px
   display: flex
   justify-content: space-between
@@ -11,13 +12,13 @@
 .about
   display: flex
   flex-direction: column
-  row-gap: 50px
+  row-gap: 30px
   flex-basis: 25%
 
 .contacts
   display: flex
   flex-direction: column
-  row-gap: 50px
+  row-gap: 30px
   flex-basis: 25%
 
 .item
@@ -25,6 +26,7 @@
   min-height: 40px
   display: flex
   align-items: center
+  transition: opacity .3s
   a
     display: flex
     align-items: center
@@ -41,7 +43,12 @@
   align-items: center
   font-size: 26px
 
-// Media
+// Media hover
+@media ( hover: hover )
+  .item:hover
+    opacity: .5
+
+// Media screen
 @media screen and ( max-width: 960px )
   .contacts, .about
     row-gap: 30px

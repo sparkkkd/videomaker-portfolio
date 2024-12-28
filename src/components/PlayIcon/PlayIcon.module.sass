@@ -11,6 +11,7 @@
   border-radius: 50%
   cursor: pointer
   z-index: 1
+  transition: background-color .3s
 
 .small
   width: 70px
@@ -35,8 +36,16 @@
   left: 55%
   top: 50%
   transform: translate(-50%, -50%)
+  transition: transform .3s
 
-// Media
+// Media hover
+@media ( hover: hover )
+  .button:hover
+    background-color: #fc4b2b
+    .icon
+      transform: translate(-50%, -50%) scale(0.9)
+
+// Media screen
 @media screen and ( max-width: 877px )
   .small
     width: 60px
