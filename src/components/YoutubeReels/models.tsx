@@ -14,22 +14,22 @@ interface IYoutubeReels {
 export const YOUTUBE_REELS: IYoutubeReels[] = [
 	{
 		id: v4(),
-		video: 'https://www.youtube.com/watch?v=a3BTjminIZ8',
+		video: 'https://kinescope.io/azVKZTJK1XAbCTZhxFr7z3',
 		light: light_1,
 	},
 	{
 		id: v4(),
-		video: 'https://www.youtube.com/watch?v=v-Z23Lv55gc',
+		video: 'https://kinescope.io/roy4NHaJSaWef2FBuZC2r6',
 		light: light_2,
 	},
 	{
 		id: v4(),
-		video: 'https://www.youtube.com/shorts/aQqZGipssiE',
+		video: 'https://kinescope.io/4L6SYDkoR2bKNYmUeSw7M6',
 		light: light_3,
 	},
 	{
 		id: v4(),
-		video: 'https://www.youtube.com/shorts/U1N7eT6vFfg',
+		video: 'https://kinescope.io/5tPtc78rkT5hTbVUk6tn19',
 		light: light_4,
 	},
 ]

@@ -26,7 +26,7 @@ interface IVideoInfo {
 export const YOUTUBE_VIDEOS: IYoutubeVideo[] = [
 	{
 		id: v4(),
-		video: 'https://youtu.be/a56nKt-ON8Y',
+		video: 'https://kinescope.io/3A6aWqxqvofrL5YxKwSGFp',
 		light: light_1,
 		title: (
 			<>
@@ -60,7 +60,7 @@ export const YOUTUBE_VIDEOS: IYoutubeVideo[] = [
 	},
 	{
 		id: v4(),
-		video: 'https://youtu.be/lTZUhbESXCU',
+		video: 'https://kinescope.io/8gYKzR5RZz9QSzp49x7TMB',
 		light: light_2,
 		title: (
 			<>

@@ -12,6 +12,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
+    "@kinescope/react-kinescope-player": "^0.5.2",
     "@reduxjs/toolkit": "^2.5.0",
     "@uidotdev/usehooks": "^2.4.1",
     "classnames": "^2.5.1",

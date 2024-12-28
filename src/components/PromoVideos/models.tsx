@@ -27,8 +27,7 @@ export const PROMO_VIDEOS: IPromoVideo[] = [
 	{
 		id: v4(),
 		title: 'RUSALE Promo Video',
-		video:
-			'https://n1e5wb3jmb.a.trbcdn.net/cdn/rutotemo49/rusale_promo_horizontal.mp4/manifest.mpd',
+		video: 'https://kinescope.io/fW4YGbyhYhQgcgKYqapsbD',
 		light: light_1,
 		isReady: true,
 		info: [

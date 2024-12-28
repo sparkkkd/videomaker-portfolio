@@ -1,22 +1,31 @@
+import { useRef, useState } from 'react'
+import Player from '@kinescope/react-kinescope-player'
+import { AnimatePresence, motion } from 'framer-motion'
+
 import CommentCard from '../../components/CommentCard/CommentCard'
-import Player from '../../components/Player/Player'
 
 import RecordIcon from '../../images/icons/record.svg?react'
 import CameraIcon from '../../images/icons/camera.svg?react'
 
-import { useState } from 'react'
+import previewLight from '../../images/thumbs/intro-thumb.jpg'
 
 import styles from './Intro.module.sass'
+import PlayIcon from '../../components/PlayIcon/PlayIcon'
 
 export default function Intro() {
 	const [isComment, setIsComment] = useState<boolean>(true)
-	const [isOverlay, setIsOverlay] = useState<boolean>(true)
+	const playeRef = useRef<Player>(null)
+
+	const handlePlayVideo = () => {
+		setIsComment(false)
+		playeRef.current?.play()
+	}
 
 	return (
 		<section className={styles.intro}>
 			<h1 className={styles.title}>Создаю видео разного формата</h1>
 			<p className={styles.subtitle}>От рилсов и ютуб роликов до короткометражных фильмов</p>
-			<div className={styles.video} onClick={() => setIsOverlay(false)}>
+			<div className={styles.video}>
 				{isComment && (
 					<>
 						<CommentCard
@@ -34,15 +43,27 @@ export default function Intro() {
 					</>
 				)}
 
-				{isOverlay && <div className={styles.overlay}></div>}
+				<div className={styles.player} onClick={handlePlayVideo}>
+					<AnimatePresence>
+						{isComment && (
+							<motion.div
+								className={styles.preview}
+								style={{ backgroundImage: `url(${previewLight})` }}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+							>
+								<PlayIcon size='medium' onClick={handlePlayVideo} />
+							</motion.div>
+						)}
+					</AnimatePresence>
 
-				<Player
-					light='https://i.vimeocdn.com/video/1961166623-c7b04bc60a2137037565f762578487611afae73ec8ab577b74630e3b457bc361-d_1920x1080'
-					video='https://vimeo.com/1038890292'
-					playSize='large'
-					style={styles.player}
-					onClick={() => setIsComment(false)}
-				/>
+					<Player
+						style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}
+						videoId={'63hdF7GUykRdTk8jCF5R9j'}
+						ref={playeRef}
+					/>
+				</div>
 			</div>
 		</section>
 	)

@@ -26,7 +26,7 @@ export const MUSIC_CLIPS: IMusicClips[] = [
 	{
 		id: v4(),
 		title: 'KEYRARI - 11:59PM',
-		video: 'https://youtu.be/V8usMS09bXY',
+		video: 'https://kinescope.io/mUAxDTSVHLeGz5RJixm3FZ',
 		info: [
 			{ id: v4(), icon: <CameraIcon />, text: 'Съемка и режиссура' },
 			{ id: v4(), icon: <EditIcon />, text: 'Монтаж' },
@@ -38,7 +38,7 @@ export const MUSIC_CLIPS: IMusicClips[] = [
 	{
 		id: v4(),
 		title: '69R - Drama',
-		video: 'https://youtu.be/MjegK_ibkos?si=gvSL102LM0hwgW17',
+		video: 'https://kinescope.io/xcJYZjkV2tsQc18pXNqHYa',
 		info: [
 			{ id: v4(), icon: <CameraIcon />, text: 'Съемка и режиссура' },
 			{ id: v4(), icon: <EditIcon />, text: 'Монтаж' },
@@ -50,7 +50,7 @@ export const MUSIC_CLIPS: IMusicClips[] = [
 	{
 		id: v4(),
 		title: '69R - Blago',
-		video: 'https://youtu.be/HpDo_9WQm7I?si=DQJju8-Zzn3LtgZk',
+		video: 'https://kinescope.io/ffgQWMG8GRkfEGHsEa764s',
 		info: [
 			{ id: v4(), icon: <CameraIcon />, text: 'Режиссура' },
 			{ id: v4(), icon: <EditIcon />, text: 'Монтаж' },
