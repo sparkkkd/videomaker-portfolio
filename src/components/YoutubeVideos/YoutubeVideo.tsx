@@ -39,7 +39,7 @@ function YoutubeVideo({ video, light, title, info }: IYoutubeVideo) {
 			<AnimatePresence>
 				{isOpen && (
 					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
+						<PopupContent video={video} onClose={() => setIsOpen(false)} />
 					</VideoPopup>
 				)}
 			</AnimatePresence>

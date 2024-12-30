@@ -41,7 +41,7 @@ function ReelsVideo({ video, light }: ReelsVideoProps) {
 			<AnimatePresence>
 				{isOpen && (
 					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
+						<PopupContent video={video} isVertical onClose={() => setIsOpen(false)} />
 					</VideoPopup>
 				)}
 			</AnimatePresence>
@@ -50,9 +50,6 @@ function ReelsVideo({ video, light }: ReelsVideoProps) {
 				<Overlay className={styles.overlay} />
 
 				<PreviewImage img={light} iconSize='medium' className={styles.preview} />
-
-				{/* {isOverlay && <div className={styles.overlay}></div>} */}
-				{/* <Player video={video} light={light} playSize='medium' style={styles.player} height={'100%'} /> */}
 			</div>
 		</>
 	)

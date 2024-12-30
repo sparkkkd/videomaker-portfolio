@@ -30,7 +30,7 @@ export default function VideoCard({ video, title, info, playSize, light }: Video
 			<AnimatePresence>
 				{isOpen && (
 					<VideoPopup isOpen={isOpen} onClose={() => setIsOpen(false)}>
-						<PopupContent video={video} light={light} onClose={() => setIsOpen(false)} />
+						<PopupContent video={video} onClose={() => setIsOpen(false)} />
 					</VideoPopup>
 				)}
 			</AnimatePresence>

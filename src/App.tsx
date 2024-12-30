@@ -40,10 +40,6 @@ function App() {
 			<AnimatePresence>{isSheetActive && <Sheet />}</AnimatePresence>
 			{/* End Sheet */}
 
-			{/* Start Noise */}
-			{/* <div className={styles.overlay} style={{ backgroundImage: `url(${backgroundNoise})` }}></div> */}
-			{/* End Noise */}
-
 			{/* Start toast */}
 			<Toaster richColors toastOptions={{ className: styles.toast }} />
 			{/* End toast */}

@@ -4,16 +4,16 @@ import styles from './PopupContent.module.sass'
 
 interface PopupContentProps {
 	video: string
-	light: string
 	onClose: () => void
+	isVertical?: boolean
 }
 
-export default function PopupContent({ video, onClose }: PopupContentProps) {
+export default function PopupContent({ video, onClose, isVertical = false }: PopupContentProps) {
 	return (
 		<div className={styles.content}>
 			<IoCloseOutline className={styles.close} onClick={onClose} />
-			<div className={styles.playerWrapper}>
-				<div style={{ position: 'relative', paddingTop: '56.25%', width: '100%' }}>
+			<div className={`${!isVertical && styles.playerWrapper} ${isVertical && styles.vertical}`}>
+				<div>
 					<iframe
 						src={video}
 						allow='autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write;'
